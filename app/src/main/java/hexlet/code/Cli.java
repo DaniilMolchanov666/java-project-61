@@ -55,18 +55,22 @@ public class Cli {
 
             case 2:
 
+                System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
+
                 boolean isCorrect = false;
 
-                do {
+                for (int i = 1; i <= 3; i++) {
 
-                    if (cli.isEven()) {
-                        System.out.println("Correct!");
-                        isCorrect = true;
+                    do {
+
+                        if (cli.isEven()) {
+                            System.out.println("Correct!");
+                            isCorrect = true;
+                        }
+
                     }
-
+                    while (!isCorrect);
                 }
-                while (!isCorrect);
-
                 break;
 
             default:
