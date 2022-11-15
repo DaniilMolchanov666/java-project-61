@@ -5,6 +5,5 @@
 <file name="/mnt/c/users/user/Desktop/жоска ботаю/java-project-61/app/src/main/java/hexlet/code/Cli.java">
 </file>
 <file name="/mnt/c/users/user/Desktop/жоска ботаю/java-project-61/app/src/main/java/hexlet/code/Even.java">
-<error line="46" column="10" severity="error" message="&apos;method def&apos; child has incorrect indentation level 9, expected level should be 8." source="com.puppycrawl.tools.checkstyle.checks.indentation.IndentationCheck"/>
 </file>
 </checkstyle>
