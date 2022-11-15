@@ -12,7 +12,7 @@ public class App {
 
         int select = sc.nextInt();
 
-        switch(select){
+        switch (select) {
 
             case 1:
 

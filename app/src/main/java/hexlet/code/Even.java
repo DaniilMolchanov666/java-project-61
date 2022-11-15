@@ -22,23 +22,24 @@ public class Even {
 
             String tryNumber = sc.next();
 
-            if(!(tryNumber.equals("yes") || tryNumber.equals("no"))) {      // проверка введен ли ответ "да" или "нет"
+            if (!(tryNumber.equals("yes") || tryNumber.equals("no"))) {      // проверка введен ли ответ "да" или "нет"
                 System.out.println("Please enter \"yes\" or \"no\"");
                 countOfCorrectAnswer = 0;
                 continue;
             }
 
-                if (number % 2 == 0 && tryNumber.equals("yes") || (number % 2 != 0 && tryNumber.equals("no"))) {    // проверка корректный ли ответ
-                    System.out.println("Correct!");
-                    countOfCorrectAnswer ++;
-                    continue;
-                }
+            if (number % 2 == 0 && tryNumber.equals("yes")
+                        || (number % 2 != 0 && tryNumber.equals("no"))) {    // проверка корректный ли ответ
+                System.out.println("Correct!");
+                countOfCorrectAnswer++;
+                continue;
+            }
 
-                String correctAnswer = tryNumber.equals("yes") ? "no" : "yes";      // вывод правильного ответа при ошибке
-
-                System.out.println("'" + tryNumber + "'" + " is wrong answer ;(. " + "Correct  answer was " + "'" + correctAnswer + "'.");
-                System.out.println("Let's try again, " + name + "!");
-                countOfCorrectAnswer = 0;
+            String correctAnswer = tryNumber.equals("yes") ? "no" : "yes";  // вывод правильного ответа при ошибке
+            System.out.println("'" + tryNumber + "'" + " is wrong answer ;(. "
+                    + "Correct  answer was " + "'" + correctAnswer + "'.");
+            System.out.println("Let's try again, " + name + "!");
+            countOfCorrectAnswer = 0;
 
         }
 
