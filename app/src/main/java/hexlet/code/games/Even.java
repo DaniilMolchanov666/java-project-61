@@ -1,10 +1,10 @@
-package hexlet.code;
+package hexlet.code.games;
 
 import java.util.Scanner;
 import java.util.Random;
 public class Even {
 
-    public static void gameTwo(String name) {
+    public static void gameTwo() {
 
         Random rand = new Random();
         Scanner sc = new Scanner(System.in);
@@ -38,7 +38,7 @@ public class Even {
             String correctAnswer = tryNumber.equals("yes") ? "no" : "yes";  // вывод правильного ответа при ошибке
             System.out.println("'" + tryNumber + "'" + " is wrong answer ;(. "
                     + "Correct  answer was " + "'" + correctAnswer + "'.");
-            System.out.println("Let's try again, " + name + "!");
+            System.out.println("Let's try again, "  + "!");
             countOfCorrectAnswer = 0;
 
         }
