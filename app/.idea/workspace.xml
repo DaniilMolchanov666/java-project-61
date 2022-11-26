@@ -92,7 +92,7 @@
     &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;
   }
 }</component>
-  <component name="RunManager" selected="Gradle.app [installDist]">
+  <component name="RunManager" selected="Gradle.app [build]">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="hexlet.code.App" />
       <module name="app.main" />
@@ -192,9 +192,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.app [build]" />
         <item itemvalue="Gradle.app [installDist]" />
         <item itemvalue="Gradle.app [run]" />
-        <item itemvalue="Gradle.app [build]" />
         <item itemvalue="Gradle.app [clean]" />
         <item itemvalue="Application.App" />
       </list>
