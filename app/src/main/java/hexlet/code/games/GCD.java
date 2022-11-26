@@ -4,36 +4,38 @@ import hexlet.code.Engine;
 import java.util.Random;
 public class GCD {
 
-    public static String createQuestion() {
+    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
+    public static void startGame() {
 
+        String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][2];
+
+        for (int i = 0; i < gameData.length; i++) {
+            gameData[i] = gcd();
+        }
+        System.out.println(Engine.checkResult(DESCRIPTION, gameData));
     }
-
-    public static void gcd() {
+    public static String[] gcd() {
 
         Random rand = new Random();
 
-        System.out.println("Find the greatest common divisor of given numbers.");
+        int number1 = rand.nextInt(100 - 1) + 1;
+        int number2 = rand.nextInt(50 - 1) + 1;
 
-        String[] arrayOfCorrectAnswers = new String[3];
-        String[] arrayOfQuestions = new String[3];
+        int correct = 1;
 
-        for (int i = 0; i < arrayOfCorrectAnswers.length; i++) {
-
-            int number1 = rand.nextInt(100);
-            int number2 = rand.nextInt(100);
-
-            arrayOfQuestions[i] = number1 + " " + number2;
-
-            int correct = 1;
-
-            for (int j = Math.min(number1, number2); j >= 2; j++) {
-                if (number1 % j == 0 && number2 % j == 0) {
-                    correct = j;
-                    break;
-                }
+        for (int j = Math.min(number1, number2); j >= 2; j--) {
+            if (number1 % j == 0 && number2 % j == 0) {
+                correct = j;
+                break;
             }
-            arrayOfCorrectAnswers[i] = Integer.toString(correct);
         }
-        System.out.println(Engine.checkResult(arrayOfCorrectAnswers, arrayOfQuestions));
+
+        String question = number1 + " " + number2;
+        String correctAnswer = Integer.toString(correct);
+
+        String[] oneRound = {question, correctAnswer};
+
+        return oneRound;
     }
 }
+

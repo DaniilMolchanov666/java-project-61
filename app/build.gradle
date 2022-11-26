@@ -3,7 +3,7 @@ plugins {
     id 'application'
     id 'checkstyle'
 }
-
+    
 application {
     mainClassName = 'hexlet.code.App'
 }

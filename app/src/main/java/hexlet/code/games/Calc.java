@@ -3,36 +3,40 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import java.util.Random;
 public class Calc {
-    public static void calc() {
+    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
+    public static void startGame() {
+
+        String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][2];
+
+        for (int i = 0; i < gameData.length; i++) {
+            gameData[i] = calc();
+        }
+        System.out.println(Engine.checkResult(DESCRIPTION, gameData));
+    }
+    public static String[] calc() {
 
         Random r = new Random();
 
-        System.out.println("What is the result of the expression?");
+        int correct = 0;
+        String symbols = "+-*";
+        char c = symbols.charAt(r.nextInt(symbols.length()));
 
-        String[] arrayOfCorrectAnswers = new String[3];
-        String[] arrayOfQuestions = new String[3];
+        int numberOne = r.nextInt(50);
+        int numberTwo = r.nextInt(50);
 
-        for (int i = 0; i < arrayOfCorrectAnswers.length; i++) {
-
-            int correct = 0;
-            String symbols = "+-*";
-            char c = symbols.charAt(r.nextInt(symbols.length()));
-
-            int numberOne = r.nextInt(100);
-            int numberTwo = r.nextInt(100);
-
-            if (c == '+') {
-                correct = numberOne + numberTwo;
-            } else if (c == '-') {
-                correct = numberOne - numberTwo;
-            } else {
-                correct = numberOne * numberTwo;
-            }
-
-            arrayOfCorrectAnswers[i] = "" + correct;
-            arrayOfQuestions[i] = "" + numberOne + c + numberTwo;
+        if (c == '+') {
+            correct = numberOne + numberTwo;
+        } else if (c == '-') {
+            correct = numberOne - numberTwo;
+        } else {
+            correct = numberOne * numberTwo;
         }
 
-        System.out.println(Engine.checkResult(arrayOfCorrectAnswers, arrayOfQuestions));
+        String question = "" + numberOne + c + numberTwo;
+        String correctAnswer = Integer.toString(correct);
+
+        String[] oneRound = {question, correctAnswer};
+
+        return oneRound;
     }
 }

@@ -1,61 +1,53 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
-
 public class Progression {
+    private static final String DESCRIPTION = "What number is missing in the progression?";
+    public static void startGame() {
 
-    public static void progression() {
+        String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][2];
+
+        for (int i = 0; i < gameData.length; i++) {
+            gameData[i] = progression();
+        }
+        System.out.println(Engine.checkResult(DESCRIPTION, gameData));
+    }
+    public static String[] progression() {
 
         Random rand = new Random();
-        Scanner sc = new Scanner(System.in);
 
-        System.out.println("What number is missing in the progression?");
+        int number1 = rand.nextInt(100);
+        int dif = rand.nextInt(100);
+        int randomPosition = rand.nextInt(9);
+        String correctAnswer = null;
 
-        int countOfCorrectAnswer = 0;
+        String[] array = new String[10];
 
-        while (countOfCorrectAnswer != 3) {
+        for (int i = 0; i < array.length; i++) {
 
-            int number1 = rand.nextInt(100);
-            int dif = rand.nextInt(100);
-            int randomPosition = rand.nextInt(9);
+            if (i == randomPosition) {
 
-            int[] array = new int[10];
+                array[i] = "...";
+                number1 += dif;
+                correctAnswer = Integer.toString(number1);
 
-            System.out.print("Question: " + " ");
+            } else if (i == 0) {
 
-            for (int i = 0; i < array.length; i++) {
-
-                if (i == 0) {
-                    array[i] = number1;
-
-                } else {
-                    number1 += dif;
-                    array[i] += number1;
-                }
-
-                System.out.println(i == randomPosition ? ".. " : array[i] + " ");
-
-            }
-
-            System.out.println("Your answer: ");
-
-            String tryNumber = sc.next();
-
-            if (Integer.parseInt(tryNumber) == array[randomPosition]) {
-                System.out.println("Correct!");
-                countOfCorrectAnswer++;
+                array[i] = Integer.toString(number1);
 
             } else {
 
-                System.out.println("'" + tryNumber + "'" + " is wrong answer ;(. "
-                        + "Correct  answer was " + "'" + array[randomPosition] + "'.");
-                System.out.println("Let's try again, " + "!");
-                countOfCorrectAnswer = 0;
-
+                number1 += dif;
+                array[i] = Integer.toString(number1);
             }
         }
-        System.out.println("Congratulation! U Win!");
+
+        String question = Arrays.toString(array);
+
+        String[] oneRound = {question, correctAnswer};
+        return oneRound;
     }
 }
 

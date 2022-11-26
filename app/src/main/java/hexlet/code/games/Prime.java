@@ -1,54 +1,42 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import  java.util.Random;
-import java.util.Scanner;
-
 public class Prime {
+    private static final String DESCRIPTION = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static void startGame() {
 
-    public static void prime() {
+        String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][2];
+
+        for (int i = 0; i < gameData.length; i++) {
+            gameData[i] = prime();
+        }
+        System.out.println(Engine.checkResult(DESCRIPTION, gameData));
+    }
+    public static String[] prime() {
 
         Random rand = new Random();
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
+        int number = rand.nextInt(100 - 1) + 1;
+        int i = 2;
+        boolean isPrime = true;
+        String correct = "";
 
-        int countOfCorrectAnswer = 0;
-
-        while (countOfCorrectAnswer != 3) {
-
-            int number = rand.nextInt(100);
-            int i = 2;
-            boolean isPrime = true;
-
-            System.out.print("Question: " + number);
-            System.out.println(" Your answer: ");
-
-            String answer = scanner.next();
-
-            while (i < Math.ceil((float) number / 2)) {
-                if (number % i != 0) {
-                    i++;
-                    continue;
-                }
-                isPrime = false;
-                break;
+        while (i < Math.ceil((float) number / 2)) {
+            if (number % i != 0) {
+                i++;
+                continue;
             }
-
-            if (isPrime && answer.equals("yes") || !isPrime && answer.equals("no")) {
-
-                System.out.println("Correct!");
-                countOfCorrectAnswer++;
-
-            } else {
-
-                String correctAnswer = answer.equals("yes") ? "no" : "yes";
-
-                System.out.println("'" + answer + "'" + " is wrong answer ;(. "
-                        + "Correct  answer was " + "'" + correctAnswer + "'.");
-                System.out.println("Let's try again, "  + "!");
-                countOfCorrectAnswer = 0;
-
-            }
+            isPrime = false;
+            break;
         }
+
+        String question = Integer.toString(number);
+        String correctAnswer = isPrime ? "yes" : "no";
+
+        String[] oneRound = {question, correctAnswer};
+
+        return oneRound;
     }
 }
+
