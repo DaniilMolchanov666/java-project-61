@@ -4,6 +4,10 @@ import hexlet.code.Engine;
 import java.util.Random;
 public class GCD {
 
+    public static String createQuestion() {
+
+    }
+
     public static void gcd() {
 
         Random rand = new Random();
