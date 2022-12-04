@@ -1,20 +1,12 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import java.util.Arrays;
 import java.util.Random;
 public class Progression {
-    private static final String DESCRIPTION = "What number is missing in the progression?";
-    public static void startGame() {
 
-        String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][2];
+    public static final String GAME_TASK = "What number is missing in the progression?";
 
-        for (int i = 0; i < gameData.length; i++) {
-            gameData[i] = progression();
-        }
-        System.out.println(Engine.checkResult(DESCRIPTION, gameData));
-    }
-    public static String[] progression() {
+    public static String[] getQAPair() {
 
         Random rand = new Random();
 
@@ -23,31 +15,30 @@ public class Progression {
         int randomPosition = rand.nextInt(9);
         String correctAnswer = null;
 
-        String[] array = new String[10];
+        String[] progression = new String[10];
 
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < progression.length; i++) {
 
             if (i == randomPosition) {
 
-                array[i] = "...";
+                progression[i] = "...";
                 number1 += dif;
                 correctAnswer = Integer.toString(number1);
 
             } else if (i == 0) {
 
-                array[i] = Integer.toString(number1);
+                progression[i] = Integer.toString(number1);
 
             } else {
 
                 number1 += dif;
-                array[i] = Integer.toString(number1);
+                progression[i] = Integer.toString(number1);
             }
         }
 
-        String question = Arrays.toString(array);
+        String question = Arrays.toString(progression);
 
-        String[] oneRound = {question, correctAnswer};
-        return oneRound;
+        return new String[]{question, correctAnswer};
     }
 }
 
