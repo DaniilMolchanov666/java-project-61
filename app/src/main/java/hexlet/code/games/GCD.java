@@ -1,41 +1,34 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
 import java.util.Random;
 public class GCD {
 
-    private static final String DESCRIPTION = "Find the greatest common divisor of given numbers.";
-    public static void startGame() {
+    public static final String GAME_TASK = "Find the greatest common divisor of given numbers.";
+    public static int findGCD(int numberOne, int numberTwo) {
 
-        String[][] gameData = new String[Engine.COUNT_OF_ROUNDS][2];
+        int correct = 1;
 
-        for (int i = 0; i < gameData.length; i++) {
-            gameData[i] = gcd();
+        for (int j = Math.min(numberOne, numberTwo); j >= 2; j--) {
+            if (numberOne % j == 0 && numberTwo % j == 0) {
+                correct = j;
+                break;
+            }
         }
-        System.out.println(Engine.checkResult(DESCRIPTION, gameData));
+        return correct;
     }
-    public static String[] gcd() {
+
+    public static String[] getQAPair() {
 
         Random rand = new Random();
 
         int number1 = rand.nextInt(100 - 1) + 1;
         int number2 = rand.nextInt(50 - 1) + 1;
 
-        int correct = 1;
-
-        for (int j = Math.min(number1, number2); j >= 2; j--) {
-            if (number1 % j == 0 && number2 % j == 0) {
-                correct = j;
-                break;
-            }
-        }
-
         String question = number1 + " " + number2;
-        String correctAnswer = Integer.toString(correct);
+        String correctAnswer = Integer.toString(findGCD(number1, number2));
 
-        String[] oneRound = {question, correctAnswer};
+        return new String[]{question, correctAnswer};
 
-        return oneRound;
     }
 }
 
