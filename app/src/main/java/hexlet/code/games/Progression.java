@@ -1,12 +1,26 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Arrays;
 import java.util.Random;
 public class Progression {
 
-    public static final String GAME_TASK = "What number is missing in the progression?";
+    public static final String PROGRESSION_GAME_TASK = "What number is missing in the progression?";
 
-    public static String[] getQAPair() {
+    public static void startProgressionGame() {
+
+        String[][] progressionGameData = new String[Engine.COUNT_OF_ROUNDS][2];
+
+        for (int i = 0; i < progressionGameData.length; i++) {
+
+            progressionGameData[i] = getAnswerQuestionPair();
+        }
+
+        System.out.println(Engine.checkResult(PROGRESSION_GAME_TASK, progressionGameData));
+    }
+
+    public static String[] getAnswerQuestionPair() {
 
         Random rand = new Random();
 
