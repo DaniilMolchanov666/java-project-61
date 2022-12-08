@@ -10,9 +10,9 @@ import java.util.Scanner;
 public class ChooseGameMenu {
     public static void chooseGame() {
 
-        Scanner input_scanner = new Scanner(System.in);
+        Scanner inputScanner = new Scanner(System.in);
 
-        String select = input_scanner.next();
+        String select = inputScanner.next();
 
         switch (select) {
             case "1" -> Greet.greeting();
@@ -39,6 +39,6 @@ public class ChooseGameMenu {
             default -> System.out.println("Incorrect choice. Pls enter number in range 1-6");
         }
 
-        input_scanner.close();
+        inputScanner.close();
     }
 }
