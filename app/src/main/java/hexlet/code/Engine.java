@@ -5,12 +5,6 @@ public class Engine {
     public static final int QUESTION = 0;
     public static final int CORRECT_ANSWER = 1;
     public static final int COUNT_OF_ROUNDS = 3;
-
-    public static String[][] getGameData(String[] pairOne, String[] pairTwo, String[] pairThree) {
-
-        return new String[][]{pairOne, pairTwo, pairThree};
-    }
-
     public static String checkResult(String gameTask, String[][] questionAnswerPairs) {
 
         System.out.println(gameTask);
