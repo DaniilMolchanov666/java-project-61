@@ -1,9 +1,9 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
 import java.util.Random;
-public class GCD {
+
+public class GreatestCommonDivision {
 
     public static final String GCD_GAME_TASK = "Find the greatest common divisor of given numbers.";
 

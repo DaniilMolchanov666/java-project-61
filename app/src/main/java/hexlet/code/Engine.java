@@ -24,7 +24,7 @@ public class Engine {
             if (!answer.equals(correctAnswer)) {
                 return "'" + answer + "'" + " is wrong answer ;(. "
                         + "Correct  answer was " + "'" + correctAnswer + "'."
-                        + "Let's try again, " + Cli.getPlayer() + "!";
+                        + "Let's try again, " + Greet.getPlayer() + "!";
             }
             System.out.println("Correct!");
         }

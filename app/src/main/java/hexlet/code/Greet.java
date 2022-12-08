@@ -1,7 +1,7 @@
 package hexlet.code;
 import java.util.Scanner;
 
-public class Cli {
+public class Greet {
     private static String playerName;
     public static void setPlayer(String name) {
         playerName = name;
