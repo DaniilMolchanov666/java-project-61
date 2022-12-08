@@ -17,29 +17,24 @@ public class ChooseGameMenu {
             case "1" -> Cli.greeting();
             case "2" -> {
                 Cli.greeting();
-                System.out.println(Engine.checkResult(Even.GAME_TASK,
-                        Engine.getGameData(Even.getQAPair(), Even.getQAPair(), Even.getQAPair())));
+                Even.startEvenGame();
             }
             case "3" -> {
                 Cli.greeting();
-                System.out.println(Engine.checkResult(Calc.GAME_TASK,
-                        Engine.getGameData(Calc.getQAPair(), Calc.getQAPair(), Calc.getQAPair())));
+                Calc.startCalculateGame();
             }
             case "4" -> {
                 Cli.greeting();
-                System.out.println(Engine.checkResult(GCD.GAME_TASK,
-                        Engine.getGameData(GCD.getQAPair(), GCD.getQAPair(), GCD.getQAPair())));
+                GCD.startGCDGame();
+
             }
             case "5" -> {
                 Cli.greeting();
-                System.out.println(Engine.checkResult(Progression.GAME_TASK,
-                        Engine.getGameData(Progression.getQAPair(),
-                                Progression.getQAPair(), Progression.getQAPair())));
+                Progression.startProgressionGame();
             }
             case "6" -> {
                 Cli.greeting();
-                System.out.println(Engine.checkResult(Prime.GAME_TASK,
-                        Engine.getGameData(Prime.getQAPair(), Prime.getQAPair(), Prime.getQAPair())));
+                Prime.startPrimeGame();
             }
             default -> System.out.println("Buy! See you later!");
         }
