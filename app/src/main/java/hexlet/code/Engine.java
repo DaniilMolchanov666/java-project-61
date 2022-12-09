@@ -2,14 +2,13 @@ package hexlet.code;
 
 import java.util.Scanner;
 public class Engine {
-    public static final int QUESTION = 0;
-    public static final int CORRECT_ANSWER = 1;
+    private static final int QUESTION = 0;
+    private static final int CORRECT_ANSWER = 1;
     public static final int COUNT_OF_ROUNDS = 3;
+    private static final Scanner scanner = new Scanner(System.in);
     public static String checkResult(String gameTask, String[][] questionAnswerPairs) {
 
         System.out.println(gameTask);
-
-        Scanner scanner = new Scanner(System.in);
 
         for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
 
@@ -24,7 +23,7 @@ public class Engine {
             if (!answer.equals(correctAnswer)) {
                 return "'" + answer + "'" + " is wrong answer ;(. "
                         + "Correct  answer was " + "'" + correctAnswer + "'."
-                        + "Let's try again, " + Greet.getPlayer() + "!";
+                        + "Let's try again, " + CLI.getPlayer() + "!";
             }
             System.out.println("Correct!");
         }

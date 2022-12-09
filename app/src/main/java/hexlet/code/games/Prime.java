@@ -4,19 +4,28 @@ import hexlet.code.Engine;
 
 import  java.util.Random;
 public class Prime {
-    public static final String PRIME_GAME_TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final String PRIME_GAME_TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final Random randomValue = new Random();
     public static void startPrimeGame() {
 
         String[][] primeGameData = new String[Engine.COUNT_OF_ROUNDS][2];
 
         for (int i = 0; i < primeGameData.length; i++) {
 
-            primeGameData[i] = getAnswerQuestionPair();
+            primeGameData[i] = generateAnswerQuestionPair();
         }
-
         System.out.println(Engine.checkResult(PRIME_GAME_TASK, primeGameData));
     }
-    public static boolean isPrime(int number) {
+    private static String[] generateAnswerQuestionPair() {
+
+        int number = randomValue.nextInt(100 - 1) + 1;
+
+        String question = Integer.toString(number);
+        String correctAnswer = isPrime(number) ? "yes" : "no";
+
+        return new String[]{question, correctAnswer};
+    }
+    private static boolean isPrime(int number) {
 
         if (number == 1) {
             return false;
@@ -32,18 +41,6 @@ public class Prime {
             return false;
         }
         return true;
-    }
-    public static String[] getAnswerQuestionPair() {
-
-        Random rand = new Random();
-
-        int number = rand.nextInt(100 - 1) + 1;
-
-        String question = Integer.toString(number);
-        String correctAnswer = isPrime(number) ? "yes" : "no";
-
-        return new String[]{question, correctAnswer};
-
     }
 }
 

@@ -4,46 +4,40 @@ import hexlet.code.Engine;
 
 import java.util.Random;
 public class Calculator {
-
-    public static final String CALCULATE_GAME_TASK = "What is the result of the expression?";
+    private static final String CALCULATE_GAME_TASK = "What is the result of the expression?";
     private static final String[] MATH_OPERATIONS = {"+", "-", "*"};
-
+    private static final Random randomValue = new Random();
     public static void startCalculateGame() {
 
         String[][] calculateGameData = new String[Engine.COUNT_OF_ROUNDS][2];
 
         for (int i = 0; i < calculateGameData.length; i++) {
-
-            calculateGameData[i] = getAnswerQuestionPair();
+            calculateGameData[i] = generateAnswerQuestionPair();
         }
-
         System.out.println(Engine.checkResult(CALCULATE_GAME_TASK, calculateGameData));
     }
+    private static String[] generateAnswerQuestionPair() {
 
-    public static String[] getAnswerQuestionPair() {
+        int random = randomValue.nextInt(MATH_OPERATIONS.length);
 
-        Random r = new Random();
+        String mathSign = MATH_OPERATIONS[random];
 
-        int random = r.nextInt(MATH_OPERATIONS.length);
+        int numberOne = randomValue.nextInt(50);
+        int numberTwo = randomValue.nextInt(10);
 
-        String operation = MATH_OPERATIONS[random];
-
-        int correct = 0;
-        int numberOne = r.nextInt(50);
-        int numberTwo = r.nextInt(10);
-
-        if (operation.equals("+")) {
-            correct = numberOne + numberTwo;
-        } else if (operation.equals("-")) {
-            correct = numberOne - numberTwo;
-        } else {
-            correct = numberOne * numberTwo;
-        }
-
-        String question = numberOne + operation + numberTwo;
-        String correctAnswer = Integer.toString(correct);
+        String question = numberOne + mathSign + numberTwo;
+        String correctAnswer = Integer.toString(calculateExpression(numberOne, mathSign, numberTwo));
 
         return new String[]{question, correctAnswer};
+    }
+    private static int calculateExpression(int numberOne, String mathOperation, int numberTwo) {
+
+        int correctResult = switch (mathOperation) {
+            case "+" -> numberOne + numberTwo;
+            case "-" -> numberOne - numberTwo;
+            default -> numberOne * numberTwo;
+        };
+        return correctResult;
     }
 
 }
