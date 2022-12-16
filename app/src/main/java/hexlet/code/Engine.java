@@ -15,7 +15,7 @@ public class Engine {
             String question = questionAnswerPairs[i][Engine.QUESTION];
             String correctAnswer = questionAnswerPairs[i][Engine.CORRECT_ANSWER];
 
-            System.out.println("Question: " + question);
+            System.out.println(question);
             System.out.println("Your answer: ");
 
             String answer = INPUT_SCANNER.next();
