@@ -27,7 +27,7 @@ public class Engine {
             }
             System.out.println("Correct!");
         }
-        return "Congratulation! U Win!";
+        return "Congratulations, " + CLI.getPlayer() + "!";
     }
 }
 
