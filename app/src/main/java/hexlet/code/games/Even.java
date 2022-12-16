@@ -25,7 +25,6 @@ public class Even {
                 + MIN_BOUND_OF_RANDOM_VALUE;
 
         String correctAnswer = isEven(randomNumber) ? ANSWER_YES : ANSWER_NO;
-
         String question = Integer.toString(randomNumber);
 
         return new String[]{question, correctAnswer};
