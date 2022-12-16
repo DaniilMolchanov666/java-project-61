@@ -35,7 +35,7 @@ public class Progression {
 
             if (i == randomPosition) {
                 correctAnswer = String.valueOf(progressionOfNumbers[i]);
-                progressionWithMissingNumber[i] = "...";
+                progressionWithMissingNumber[i] = "..";
             } else {
                 progressionWithMissingNumber[i] = String.valueOf(progressionOfNumbers[i]);
             }
