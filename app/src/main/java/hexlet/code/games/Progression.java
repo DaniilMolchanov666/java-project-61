@@ -50,7 +50,6 @@ public class Progression {
         int[] progression = new int[progressionLength];
 
         for (int i = 0; i < progression.length; i++) {
-
             if (i == 0) {
                 progression[i] = initialNumber;
                 continue;
