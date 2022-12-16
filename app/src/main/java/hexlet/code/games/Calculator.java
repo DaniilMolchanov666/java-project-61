@@ -26,7 +26,7 @@ public class Calculator {
         int randomNumberOne = RANDOM_VALUE.nextInt(BOUND_OF_RANDOM_VALUES);
         int randomNumberTwo = RANDOM_VALUE.nextInt(BOUND_OF_RANDOM_VALUES);
 
-        String question = "Question: " + randomNumberOne + randomMathSign + randomNumberTwo;
+        String question = randomNumberOne + " " + randomMathSign + " " + randomNumberTwo;
         String correctAnswer = Integer.toString(calculateExpression(randomNumberOne, randomMathSign, randomNumberTwo));
 
         return new String[]{question, correctAnswer};
