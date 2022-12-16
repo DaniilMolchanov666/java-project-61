@@ -23,11 +23,11 @@ public class Calculator {
 
         String randomMathSign = MATH_OPERATIONS[randomOperation];
 
-        int numberOne = RANDOM_VALUE.nextInt(BOUND_OF_RANDOM_VALUES);
-        int numberTwo = RANDOM_VALUE.nextInt(BOUND_OF_RANDOM_VALUES);
+        int randomNumberOne = RANDOM_VALUE.nextInt(BOUND_OF_RANDOM_VALUES);
+        int randomNumberTwo = RANDOM_VALUE.nextInt(BOUND_OF_RANDOM_VALUES);
 
-        String question = numberOne + randomMathSign + numberTwo;
-        String correctAnswer = Integer.toString(calculateExpression(numberOne, randomMathSign, numberTwo));
+        String question = randomNumberOne + randomMathSign + randomNumberTwo;
+        String correctAnswer = Integer.toString(calculateExpression(randomNumberOne, randomMathSign, randomNumberTwo));
 
         return new String[]{question, correctAnswer};
     }

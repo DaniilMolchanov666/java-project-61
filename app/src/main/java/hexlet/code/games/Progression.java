@@ -22,40 +22,41 @@ public class Progression {
     private static String[] generateAnswerQuestionPair() {
 
         int initialNumber = RANDOM_NUMBER_GENERATOR.nextInt(MAX_BOUND_OF_RANDOM_VALUE);
-
         int differenceBetweenValues = RANDOM_NUMBER_GENERATOR.nextInt(MAX_BOUND_OF_RANDOM_VALUE);
-
         String correctAnswer = "";
-
         int randomPosition = RANDOM_NUMBER_GENERATOR.nextInt(PROGRESSION_LENGTH - MIN_BOUND_OF_RANDOM_VALUE)
                 + MIN_BOUND_OF_RANDOM_VALUE;
 
-        String[] arithmeticProgression = generateProgression(PROGRESSION_LENGTH,
-                differenceBetweenValues, initialNumber);
+        int[] progressionOfNumbers = generateProgression(PROGRESSION_LENGTH, differenceBetweenValues, initialNumber);
 
-        for (int i = 0; i < arithmeticProgression.length; i++) {
+        String[] progressionWithMissingNumber = new String[PROGRESSION_LENGTH];
+
+        for (int i = 0; i < progressionWithMissingNumber.length; i++) {
 
             if (i == randomPosition) {
-                correctAnswer = arithmeticProgression[i];
-                arithmeticProgression[i] = "...";
+                correctAnswer = String.valueOf(progressionOfNumbers[i]);
+                progressionWithMissingNumber[i] = "...";
+            } else {
+                progressionWithMissingNumber[i] = String.valueOf(progressionOfNumbers[i]);
             }
         }
 
-        String question = Arrays.toString(arithmeticProgression);
+        String question = Arrays.toString(progressionWithMissingNumber);
+
         return new String[]{question, correctAnswer};
     }
-    private static String[] generateProgression(int progressionLength, int differenceBetweenValues, int initialNumber) {
+    private static int[] generateProgression(int progressionLength, int differenceBetweenValues, int initialNumber) {
 
-        String[] progression = new String[progressionLength];
+        int[] progression = new int[progressionLength];
 
         for (int i = 0; i < progression.length; i++) {
 
             if (i == 0) {
-                progression[i] = Integer.toString(initialNumber);
+                progression[i] = initialNumber;
                 continue;
             }
             initialNumber += differenceBetweenValues;
-            progression[i] = Integer.toString(initialNumber);
+            progression[i] = initialNumber;
         }
         return progression;
     }
