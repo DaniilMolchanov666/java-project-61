@@ -57,6 +57,7 @@ public class Progression {
             initialNumber += differenceBetweenValues;
             progression[i] = initialNumber;
         }
+        
         return progression;
     }
 }
