@@ -6,7 +6,10 @@ import java.util.Arrays;
 import java.util.Random;
 public class Progression {
     private static final String PROGRESSION_GAME_TASK = "What number is missing in the progression?";
-    private static final Random randomValue = new Random();
+    private static final int MIN_BOUND_OF_RANDOM_VALUE = 1;
+    private static final int MAX_BOUND_OF_RANDOM_VALUE = 100;
+    private static final int PROGRESSION_LENGTH =  10;
+    private static final Random RANDOM_NUMBER_GENERATOR = new Random();
     public static void startProgressionGame() {
 
         String[][] progressionGameData = new String[Engine.COUNT_OF_ROUNDS][2];
@@ -18,25 +21,27 @@ public class Progression {
     }
     private static String[] generateAnswerQuestionPair() {
 
-        int initialNumber = randomValue.nextInt(100);
-        int differenceBetweenValues = randomValue.nextInt(100);
-        int rowLength = 10;
+        int initialNumber = RANDOM_NUMBER_GENERATOR.nextInt(MAX_BOUND_OF_RANDOM_VALUE);
+
+        int differenceBetweenValues = RANDOM_NUMBER_GENERATOR.nextInt(MAX_BOUND_OF_RANDOM_VALUE);
+
         String correctAnswer = "";
 
-        int randomPosition = randomValue.nextInt(rowLength - 1);
+        int randomPosition = RANDOM_NUMBER_GENERATOR.nextInt(PROGRESSION_LENGTH - MIN_BOUND_OF_RANDOM_VALUE)
+                + MIN_BOUND_OF_RANDOM_VALUE;
 
-        String[] ariphmeticProgression = generateProgression(rowLength, differenceBetweenValues, initialNumber);
+        String[] arithmeticProgression = generateProgression(PROGRESSION_LENGTH,
+                differenceBetweenValues, initialNumber);
 
-        for (int i = 0; i < ariphmeticProgression.length; i++) {
+        for (int i = 0; i < arithmeticProgression.length; i++) {
 
             if (i == randomPosition) {
-                correctAnswer = ariphmeticProgression[i];
-                ariphmeticProgression[i] = "...";
+                correctAnswer = arithmeticProgression[i];
+                arithmeticProgression[i] = "...";
             }
         }
 
-        String question = Arrays.toString(ariphmeticProgression);
-
+        String question = Arrays.toString(arithmeticProgression);
         return new String[]{question, correctAnswer};
     }
     private static String[] generateProgression(int progressionLength, int differenceBetweenValues, int initialNumber) {

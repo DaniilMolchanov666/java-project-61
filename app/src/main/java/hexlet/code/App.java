@@ -9,12 +9,12 @@ import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner INPUT_SCANNER = new Scanner(System.in);
     private static void chooseGame() {
 
-        String select = scanner.next();
+        String selectGame = INPUT_SCANNER.next();
 
-        switch (select) {
+        switch (selectGame) {
             case "1" -> CLI.greeting();
             case "2" -> {
                 CLI.greeting();
@@ -36,10 +36,13 @@ public class App {
                 CLI.greeting();
                 Prime.startPrimeGame();
             }
-            default -> System.out.println("Incorrect choice. Pls enter number in range 1-6");
+            case "0" -> {
+                System.out.println("Goodbye! See you later!");
+            }
+            default -> System.out.println("Incorrect choice. Please, enter number in range 1-6");
         }
 
-        scanner.close();
+        INPUT_SCANNER.close();
     }
 
     public static void main(String[] args) {

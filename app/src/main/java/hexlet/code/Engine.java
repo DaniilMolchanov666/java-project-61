@@ -5,7 +5,7 @@ public class Engine {
     private static final int QUESTION = 0;
     private static final int CORRECT_ANSWER = 1;
     public static final int COUNT_OF_ROUNDS = 3;
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner INPUT_SCANNER = new Scanner(System.in);
     public static String checkResult(String gameTask, String[][] questionAnswerPairs) {
 
         System.out.println(gameTask);
@@ -18,7 +18,7 @@ public class Engine {
             System.out.println("Question: " + question);
             System.out.println("Your answer: ");
 
-            String answer = scanner.next();
+            String answer = INPUT_SCANNER.next();
 
             if (!answer.equals(correctAnswer)) {
                 return "'" + answer + "'" + " is wrong answer ;(. "

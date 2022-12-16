@@ -5,7 +5,11 @@ import hexlet.code.Engine;
 import  java.util.Random;
 public class Prime {
     private static final String PRIME_GAME_TASK = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static final Random randomValue = new Random();
+    private static final int MIN_BOUND_OF_RANDOM_VALUE = 1;
+    private static final int MAX_BOUND_OF_RANDOM_VALUE = 100;
+    private static final String ANSWER_YES = "yes";
+    private static final String ANSWER_NO = "no";
+    private static final Random RANDOM_NUMBER_GENERATOR = new Random();
     public static void startPrimeGame() {
 
         String[][] primeGameData = new String[Engine.COUNT_OF_ROUNDS][2];
@@ -18,23 +22,25 @@ public class Prime {
     }
     private static String[] generateAnswerQuestionPair() {
 
-        int number = randomValue.nextInt(100 - 1) + 1;
+        int randomNumber = RANDOM_NUMBER_GENERATOR.nextInt(MAX_BOUND_OF_RANDOM_VALUE - MIN_BOUND_OF_RANDOM_VALUE)
+                + MIN_BOUND_OF_RANDOM_VALUE;
 
-        String question = Integer.toString(number);
-        String correctAnswer = isPrime(number) ? "yes" : "no";
+        String question = Integer.toString(randomNumber);
+
+        String correctAnswer = isPrime(randomNumber) ? ANSWER_YES : ANSWER_NO;
 
         return new String[]{question, correctAnswer};
     }
-    private static boolean isPrime(int number) {
+    private static boolean isPrime(int primeCheckedNumber) {
 
-        if (number == 1) {
+        if (primeCheckedNumber == 1) {
             return false;
         }
 
         int i = 2;
 
-        while (i < number) {
-            if (number % i != 0) {
+        while (i < primeCheckedNumber) {
+            if (primeCheckedNumber % i != 0) {
                 i++;
                 continue;
             }

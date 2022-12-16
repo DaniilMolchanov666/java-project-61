@@ -6,7 +6,8 @@ import java.util.Random;
 public class Calculator {
     private static final String CALCULATE_GAME_TASK = "What is the result of the expression?";
     private static final String[] MATH_OPERATIONS = {"+", "-", "*"};
-    private static final Random randomValue = new Random();
+    private static final int BOUND_OF_RANDOM_VALUES = 50;
+    private static final Random RANDOM_VALUE = new Random();
     public static void startCalculateGame() {
 
         String[][] calculateGameData = new String[Engine.COUNT_OF_ROUNDS][2];
@@ -18,15 +19,15 @@ public class Calculator {
     }
     private static String[] generateAnswerQuestionPair() {
 
-        int random = randomValue.nextInt(MATH_OPERATIONS.length);
+        int randomOperation = RANDOM_VALUE.nextInt(MATH_OPERATIONS.length);
 
-        String mathSign = MATH_OPERATIONS[random];
+        String randomMathSign = MATH_OPERATIONS[randomOperation];
 
-        int numberOne = randomValue.nextInt(50);
-        int numberTwo = randomValue.nextInt(10);
+        int numberOne = RANDOM_VALUE.nextInt(BOUND_OF_RANDOM_VALUES);
+        int numberTwo = RANDOM_VALUE.nextInt(BOUND_OF_RANDOM_VALUES);
 
-        String question = numberOne + mathSign + numberTwo;
-        String correctAnswer = Integer.toString(calculateExpression(numberOne, mathSign, numberTwo));
+        String question = numberOne + randomMathSign + numberTwo;
+        String correctAnswer = Integer.toString(calculateExpression(numberOne, randomMathSign, numberTwo));
 
         return new String[]{question, correctAnswer};
     }
@@ -35,7 +36,8 @@ public class Calculator {
         int correctResult = switch (mathOperation) {
             case "+" -> numberOne + numberTwo;
             case "-" -> numberOne - numberTwo;
-            default -> numberOne * numberTwo;
+            case "*" -> numberOne * numberTwo;
+            default -> throw new StringIndexOutOfBoundsException("incorrect");
         };
         return correctResult;
     }
