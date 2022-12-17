@@ -18,11 +18,11 @@ public class GreatestCommonDivision {
     }
     private static String[] generateAnswerQuestionPair() {
 
-        int randomNumberOne = RANDOM_NUMBER_GENERATOR.nextInt(MAX_BOUND_OF_RANDOM_VALUE - MIN_BOUND_OF_RANDOM_VALUE)
-                + MIN_BOUND_OF_RANDOM_VALUE;
+        int randomNumberOne = RANDOM_NUMBER_GENERATOR.nextInt(MAX_BOUND_OF_RANDOM_VALUE
+                - MIN_BOUND_OF_RANDOM_VALUE) + MIN_BOUND_OF_RANDOM_VALUE;
 
-        int randomNumberTwo = RANDOM_NUMBER_GENERATOR.nextInt(MAX_BOUND_OF_RANDOM_VALUE - MIN_BOUND_OF_RANDOM_VALUE)
-                + MIN_BOUND_OF_RANDOM_VALUE;
+        int randomNumberTwo = RANDOM_NUMBER_GENERATOR.nextInt(MAX_BOUND_OF_RANDOM_VALUE
+                - MIN_BOUND_OF_RANDOM_VALUE) + MIN_BOUND_OF_RANDOM_VALUE;
 
         String question = randomNumberOne + " " + randomNumberTwo;
         String correctAnswer = Integer.toString(findGCD(randomNumberOne, randomNumberTwo));
