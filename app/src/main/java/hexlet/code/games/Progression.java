@@ -1,9 +1,8 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
-import java.util.Arrays;
 import java.util.Random;
+
 public class Progression {
     private static final String PROGRESSION_GAME_TASK = "What number is missing in the progression?";
     private static final int MIN_BOUND_OF_RANDOM_VALUE = 1;
@@ -40,9 +39,7 @@ public class Progression {
                 progressionWithMissingNumber[i] = String.valueOf(progressionOfNumbers[i]);
             }
         }
-
-        String question = Arrays.toString(progressionWithMissingNumber);
-
+        String question = String.join(" ", progressionWithMissingNumber);
         return new String[]{question, correctAnswer};
     }
     private static int[] generateProgression(int progressionLength, int differenceBetweenValues, int initialNumber) {
