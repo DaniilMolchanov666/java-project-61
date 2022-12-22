@@ -35,7 +35,7 @@ public class Engine {
                 System.out.println("Correct!");
                 countOfCorrectAnswers++;
 
-                if (countOfCorrectAnswers == 3) {
+                if (countOfCorrectAnswers == COUNT_OF_ROUNDS) {
                     System.out.println("Congratulations, " + getPlayerName() + "!");
                     break;
                 }
