@@ -10,40 +10,6 @@ import java.util.Scanner;
 
 public class App {
     private static final Scanner INPUT_SCANNER = new Scanner(System.in);
-    private static void chooseGame() {
-
-        String selectGame = INPUT_SCANNER.next();
-
-        switch (selectGame) {
-            case "1" -> CLI.greeting();
-            case "2" -> {
-                CLI.greeting();
-                Even.startEvenGame();
-            }
-            case "3" -> {
-                CLI.greeting();
-                Calculator.startCalculateGame();
-            }
-            case "4" -> {
-                CLI.greeting();
-                GreatestCommonDivision.startGCDGame();
-            }
-            case "5" -> {
-                CLI.greeting();
-                Progression.startProgressionGame();
-            }
-            case "6" -> {
-                CLI.greeting();
-                Prime.startPrimeGame();
-            }
-            case "0" -> {
-                System.out.println("Goodbye! See you later!");
-            }
-            default -> System.out.println("Incorrect choice. Please, enter number in range 1-6");
-        }
-
-        INPUT_SCANNER.close();
-    }
 
     public static void main(String[] args) {
 
@@ -54,5 +20,35 @@ public class App {
                 + "\n" + "Your choice: ");
 
         chooseGame();
+    }
+
+    private static void chooseGame() {
+
+        String selectGame = INPUT_SCANNER.next();
+
+        switch (selectGame) {
+            case "1" -> CLI.greeting();
+            case "2" -> {
+                Even.startEvenGame();
+            }
+            case "3" -> {
+                Calculator.startCalculateGame();
+            }
+            case "4" -> {
+                GreatestCommonDivision.startGCDGame();
+            }
+            case "5" -> {
+                Progression.startProgressionGame();
+            }
+            case "6" -> {
+                Prime.startPrimeGame();
+            }
+            case "0" -> {
+                System.out.println("Goodbye! See you later!");
+            }
+            default -> System.out.println("Incorrect choice. Please, enter number in range 1-6");
+        }
+
+        INPUT_SCANNER.close();
     }
 }

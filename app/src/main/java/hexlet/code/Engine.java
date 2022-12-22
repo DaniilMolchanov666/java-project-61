@@ -1,12 +1,23 @@
 package hexlet.code;
 
 import java.util.Scanner;
+
 public class Engine {
+
     private static final int QUESTION = 0;
     private static final int CORRECT_ANSWER = 1;
     public static final int COUNT_OF_ROUNDS = 3;
     private static final Scanner INPUT_SCANNER = new Scanner(System.in);
-    public static String checkResult(String gameTask, String[][] questionAnswerPairs) {
+    private static String playerName;
+    private static int countOfCorrectAnswers;
+
+    public static void checkResult(String gameTask, String[][] questionAnswerPairs) {
+
+        System.out.println("Welcome to the Brain Games!");
+        System.out.print("May I have your name? ");
+        setPlayerName(INPUT_SCANNER.next());
+        System.out.println("\n" + "Hello, " + getPlayerName() + "!");
+        System.out.println();
 
         System.out.println(gameTask);
 
@@ -20,14 +31,30 @@ public class Engine {
 
             String answer = INPUT_SCANNER.next();
 
-            if (!answer.equals(correctAnswer)) {
-                return "'" + answer + "'" + " is wrong answer ;(. "
-                        + "Correct  answer was " + "'" + correctAnswer + "'."
-                        + "Let's try again, " + CLI.getPlayer() + "!";
+            if (answer.equals(correctAnswer)) {
+                System.out.println("Correct!");
+                countOfCorrectAnswers++;
+
+                if (countOfCorrectAnswers == 3) {
+                    System.out.println("Congratulations, " + getPlayerName() + "!");
+                    break;
+                }
+            } else {
+                System.out.print("'" + answer + "'" + " is wrong answer ;(. ");
+                System.out.print("Correct  answer was " + "'" + correctAnswer + "'. ");
+                System.out.print("Let's try again, " + getPlayerName() + "!");
+                break;
             }
-            System.out.println("Correct!");
         }
-        return "Congratulations, " + CLI.getPlayer() + "!";
+    }
+
+
+    private static String getPlayerName() {
+        return playerName;
+    }
+
+    private static void setPlayerName(String name) {
+        playerName = name;
     }
 }
 
