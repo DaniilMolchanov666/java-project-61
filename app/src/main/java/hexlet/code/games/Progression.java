@@ -10,6 +10,7 @@ public class Progression {
     private static final int MAX_BOUND_OF_RANDOM_VALUE = 100;
     private static final int PROGRESSION_LENGTH =  10;
     private static final Random RANDOMIZER = new Random();
+    private static StringBuilder question = new StringBuilder();
 
     public static void startProgressionGame() {
 
@@ -37,13 +38,12 @@ public class Progression {
 
             if (i == randomPosition) {
                 correctAnswer = String.valueOf(progressionOfNumbers[i]);
-                progressionWithMissingNumber[i] = "..";
+                question.append(" .. ");
             } else {
-                progressionWithMissingNumber[i] = String.valueOf(progressionOfNumbers[i]);
+                question.append(" ").append(String.valueOf(progressionOfNumbers[i])).append(" ");
             }
         }
-        String question = String.join(" ", progressionWithMissingNumber);
-        return new String[]{question, correctAnswer};
+        return new String[]{question.toString(), correctAnswer};
     }
 
     private static int[] generateProgression(int progressionLength, int differenceBetweenValues, int initialNumber) {
