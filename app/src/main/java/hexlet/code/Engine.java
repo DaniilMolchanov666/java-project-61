@@ -22,29 +22,29 @@ public class Engine {
 
         System.out.println(gameTask);
 
-            for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
+        for (int i = 0; i < Engine.COUNT_OF_ROUNDS; i++) {
 
-                String question = questionAnswerPairs[i][Engine.QUESTION];
-                String correctAnswer = questionAnswerPairs[i][Engine.CORRECT_ANSWER];
+            String question = questionAnswerPairs[i][Engine.QUESTION];
+            String correctAnswer = questionAnswerPairs[i][Engine.CORRECT_ANSWER];
 
-                System.out.println("Question: " + question);
-                System.out.println("Your answer: ");
+            System.out.println("Question: " + question);
+            System.out.println("Your answer: ");
 
-                String answer = INPUT_SCANNER.next();
+            String answer = INPUT_SCANNER.next();
 
-                if (answer.equals(correctAnswer)) {
-                    System.out.println("Correct!");
-                    countOfCorrectAnswers++;
+            if (answer.equals(correctAnswer)) {
+                System.out.println("Correct!");
+                countOfCorrectAnswers++;
 
-                } else {
-                    System.out.print("'" + answer + "'" + " is wrong answer ;(. ");
-                    System.out.print("Correct  answer was " + "'" + correctAnswer + "'. ");
-                    System.out.print("Let's try again, " + getPlayerName() + "!");
-                    break;
-                }
+            } else {
+                System.out.print("'" + answer + "'" + " is wrong answer ;(. ");
+                System.out.print("Correct  answer was " + "'" + correctAnswer + "'. ");
+                System.out.print("Let's try again, " + getPlayerName() + "!");
+                break;
             }
-            if (countOfCorrectAnswers == COUNT_OF_ROUNDS) {
-                System.out.println("Congratulations, " + getPlayerName() + "!");
+        }
+        if (countOfCorrectAnswers == COUNT_OF_ROUNDS) {
+            System.out.println("Congratulations, " + getPlayerName() + "!");
         }
     }
 

@@ -38,9 +38,9 @@ public class Progression {
 
             if (i == randomPosition) {
                 correctAnswer = String.valueOf(progressionOfNumbers[i]);
-                question.append(" .. ");
+                question.append(".. ");
             } else {
-                question.append(" ").append(String.valueOf(progressionOfNumbers[i])).append(" ");
+                question.append(String.valueOf(progressionOfNumbers[i])).append(" ");
             }
         }
         return new String[]{question.toString(), correctAnswer};
